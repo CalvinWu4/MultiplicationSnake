@@ -39,7 +39,7 @@ coverimg = pygame.image.load(path.join(assets + '/coverimage.png'))
 coverimg = pygame.transform.scale(coverimg,(800,600))
 
 # game name init and display updated
-pygame.display.set_caption('Placked | Beyond the Apple')
+pygame.display.set_caption('Multiplication Snake')
 pygame.display.update()
 
 # updating the game icon in window
