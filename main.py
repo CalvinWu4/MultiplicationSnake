@@ -97,7 +97,7 @@ def getNumPairs():
 # function for generating points for the apples
 # generates 4 unique points that are at least an appleSize distance away from each other
 # also makes make sure that the apple is generated at least 10 appleSizes away from the snake's head
-def getAppleCoords(current_x, current_y):
+def getAppleCoords(snake_x, snake_y):
     radius = appleSize
     largeRadius = radius * 10
     rangeX = (0, display_width - appleSize)
@@ -114,8 +114,8 @@ def getAppleCoords(current_x, current_y):
     randPoints = []
     excluded = set()
     # Generate a set of all points within 10 appleSizes of the snake head, to be used as offsets later
-    for x in range(current_x - largeRadius, (current_x + 1) + largeRadius):
-        for y in range(current_y - largeRadius, (current_y + 1) + largeRadius):
+    for x in range(snake_x - largeRadius, (snake_x + 1) + largeRadius):
+        for y in range(snake_y - largeRadius, (snake_y + 1) + largeRadius):
             if x*x + y*y <= largeRadius*largeRadius:
                 excluded.add((x,y))
 
@@ -128,7 +128,6 @@ def getAppleCoords(current_x, current_y):
         i += 1
         excluded.update((x+dx, y+dy) for (dx,dy) in deltas)
     return randPoints
-
 
 # function to print multiplication problem
 def problem(numberOne, numberTwo):
